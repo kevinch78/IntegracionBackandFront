@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { listProducts } from '../../services/products';
+import { listProducts } from '../services/products';
+import { Link } from 'react-router-dom';
 
 type Product = {
   id: number;
@@ -48,13 +49,15 @@ export default function ProductsView() {
       {!loading && !error && items.length === 0 && <p>No hay resultados.</p>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {items.map(p => (
-          <div key={p.id} className="border rounded p-3 bg-white dark:bg-slate-800">
-            <img src={p.image} alt={p.name} className="w-full h-40 object-cover rounded" />
-            <div className="mt-2 flex items-center justify-between">
-              <span className="font-medium">{p.name}</span>
-              <span className="text-emerald-600">${p.price}</span>
+          <Link to={`/api/products/${p.id}`} key={p.id}>
+            <div className="border rounded p-3 bg-white dark:bg-slate-800 hover:shadow-lg transition-shadow">
+              <img src={p.image} alt={p.name} className="w-full h-40 object-cover rounded" />
+              <div className="mt-2 flex items-center justify-between">
+                <span className="font-medium">{p.name}</span>
+                <span className="text-emerald-600">${p.price}</span>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

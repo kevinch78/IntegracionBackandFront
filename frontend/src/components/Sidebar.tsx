@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaHome, FaCube, FaColumns, FaMicrophone, FaShapes, FaCalculator, FaRuler, FaKey, FaMouse, FaList, FaSignInAlt, FaBoxOpen } from "react-icons/fa";
+import { FaHome, FaCube, FaColumns, FaMicrophone, FaShapes, FaCalculator, FaRuler, FaKey, FaMouse, FaList, FaSignInAlt, FaBoxOpen, FaPlusSquare } from "react-icons/fa";
 
 interface SidebarItem {
   label: string;
@@ -27,6 +27,7 @@ const exerciseItems: SidebarItem[] = [
 const apiItems: SidebarItem[] = [
   { label: "Login (API)", route: "/api/login", icon: <FaSignInAlt /> },
   { label: "Productos (API)", route: "/api/products", icon: <FaBoxOpen /> },
+  { label: "Crear Producto", route: "/api/products/new", icon: <FaPlusSquare /> },
 ];
 
 export default function Sidebar() {

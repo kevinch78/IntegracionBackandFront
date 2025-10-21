@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login as loginRequest } from '../../services/auth';
-import { setToken } from '../../services/session';
+import { login as loginRequest } from '../services/auth';
+import { setToken } from '../services/session';
 
 export default function LoginView() {
   const navigate = useNavigate();
